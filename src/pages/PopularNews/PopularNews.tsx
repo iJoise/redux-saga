@@ -3,7 +3,7 @@ import { useAppSelector } from '../../hook/useAppSelector';
 
 export const PopularNews = () => {
   const { popularNews } = useAppSelector(store => store.news);
-  const { popularNewsError } = useAppSelector(store => store.errors);
+  const { popularNewsError } = useAppSelector(store => store.app);
 
   return (
     <div>

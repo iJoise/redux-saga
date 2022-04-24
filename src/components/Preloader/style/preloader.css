@@ -1,0 +1,19 @@
+.fetching {
+  height: calc(100vh - 65px);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.fetching__loader {
+   letter-spacing: 2px;
+   font-size: 22px;
+   text-align: center;
+ }
+
+.fetching__text {
+   display: block;
+ }

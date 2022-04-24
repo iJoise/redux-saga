@@ -4,26 +4,32 @@ import { NewsRoot } from '../../types';
 import {
   setErrorLatestNews,
   setErrorPopularNews,
-  setLatestNews,
+  setLatestNews, setLoadingData,
   setPopularNews,
 } from '../actions';
 import { NewsActions } from '../enums';
 
 export function* handleLatestNews() {
   try {
+    yield put(setLoadingData(true));
     const { hits }: NewsRoot = yield call(Api.getLatestNews, 'react');
     yield put(setLatestNews(hits));
   } catch (err) {
     yield put(setErrorLatestNews('Error fetching latest news'));
+  } finally {
+    yield put(setLoadingData(false));
   }
 }
 
 export function* handlePopularNews() {
   try {
+    yield put(setLoadingData(true));
     const { hits }: NewsRoot = yield call(Api.getPopularNews);
     yield put(setPopularNews(hits));
   } catch (err) {
     yield put(setErrorPopularNews('Error fetching popular news'));
+  } finally {
+    yield put(setLoadingData(false));
   }
 }
 

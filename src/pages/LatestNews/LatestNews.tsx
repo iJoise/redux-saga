@@ -4,7 +4,7 @@ import React from 'react';
 
 export const LatestNews = () => {
   const { latestNews } = useAppSelector(store => store.news);
-  const { latestNewsError } = useAppSelector(store => store.errors);
+  const { latestNewsError } = useAppSelector(store => store.app);
 
   return (
     <div>

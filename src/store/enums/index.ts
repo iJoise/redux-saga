@@ -9,3 +9,7 @@ export enum ErrorsActions {
   SET_LATEST_NEWS_ERROR = 'SET_LATEST_NEWS_ERROR',
   SET_POPULAR_NEWS_ERROR = 'SET_POPULAR_NEWS_ERROR',
 }
+
+export enum AppActions {
+  SET_LOADING_DATA = 'SET_LOADING_DATA'
+}

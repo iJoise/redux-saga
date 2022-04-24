@@ -1,4 +1,4 @@
-import { ErrorsActions, NewsActions } from '../enums';
+import { AppActions, ErrorsActions, NewsActions } from '../enums';
 import { NewsData } from '../../types';
 
 // News
@@ -22,4 +22,10 @@ export const setErrorPopularNews = (popularNewsError: string) => ({
   type: ErrorsActions.SET_POPULAR_NEWS_ERROR,
   payload: { popularNewsError },
 } as const);
+
+// app
+export const setLoadingData = (isLoadingData: boolean) => ({
+  type: AppActions.SET_LOADING_DATA,
+  payload: { isLoadingData },
+} as const)
 

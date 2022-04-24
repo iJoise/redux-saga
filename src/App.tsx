@@ -6,18 +6,14 @@ import { Home } from './pages/Home';
 import { LatestNews } from './pages/LatestNews';
 import { PopularNews } from './pages/PopularNews';
 import { PATH } from './enums';
-import { useRouterFetch } from './hook/useRouterFetch';
 
-export const App: FC = () => {
-  useRouterFetch()
+export const App: FC = () => (
+  <Routes>
+    <Route path={PATH.HOME} element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path={PATH.LATEST_NEWS} element={<LatestNews />} />
+      <Route path={PATH.POPULAR_NEWS} element={<PopularNews />} />
+    </Route>
+  </Routes>
+);
 
-  return (
-    <Routes>
-      <Route path={PATH.HOME} element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path={PATH.LATEST_NEWS} element={<LatestNews />} />
-        <Route path={PATH.POPULAR_NEWS} element={<PopularNews />} />
-      </Route>
-    </Routes>
-  );
-};

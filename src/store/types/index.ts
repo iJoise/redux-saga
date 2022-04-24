@@ -1,4 +1,4 @@
-import { setErrorLatestNews, setErrorPopularNews, setLatestNews, setPopularNews } from '../actions';
+import { setErrorLatestNews, setErrorPopularNews, setLatestNews, setLoadingData, setPopularNews } from '../actions';
 
 // News action
 type SetLatestNews = ReturnType<typeof setLatestNews>
@@ -10,5 +10,6 @@ export type NewsActionsType = SetLatestNews | SetPopularNews
 
 type SetErrorLatestNews = ReturnType<typeof setErrorLatestNews>
 type SetErrorPopularNews = ReturnType<typeof setErrorPopularNews>
+type SetLoadingData = ReturnType<typeof setLoadingData>
 
-export type ErrorsNewsAction = SetErrorLatestNews | SetErrorPopularNews
+export type ErrorsNewsAction = SetErrorLatestNews | SetErrorPopularNews | SetLoadingData
