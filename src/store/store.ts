@@ -1,5 +1,7 @@
-import { combineReducers, compose, createStore, PreloadedState } from 'redux';
-import { testReducer } from './reducers';
+import { applyMiddleware, compose, createStore, PreloadedState } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { rootSaga } from './sagas';
+import { rootReducer, RootStateType } from './reducers';
 
 declare global {
   interface Window {
@@ -8,16 +10,15 @@ declare global {
 }
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducer = combineReducers({
-  test: testReducer,
-});
+const sagaMiddleware = createSagaMiddleware();
 
 const configureStore = (preloadedState: PreloadedState<RootStateType>) => createStore(
   rootReducer,
   preloadedState,
-  composeEnhancers(),
+  composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 
 export const store = configureStore({});
 
-export type RootStateType = ReturnType<typeof rootReducer>
+sagaMiddleware.run(rootSaga);
+
