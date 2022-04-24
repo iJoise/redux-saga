@@ -1,18 +1,23 @@
 import React, { FC } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { Footer } from './components/Footer';
-import { Header } from './components/Header';
+import { Layout } from './components/Layout/Layout';
+import { Home } from './pages/Home';
+import { LatestNews } from './pages/LatestNews';
+import { PopularNews } from './pages/PopularNews';
+import { PATH } from './enums';
+import { useRouterFetch } from './hook/useRouterFetch';
 
-interface Props {
-  children?: React.ReactNode;
-}
+export const App: FC = () => {
+  useRouterFetch()
 
-export const App: FC<Props> = ({ children }) => (
-  <div>
-    <Header />
-    <main>
-      {children}
-    </main>
-    <Footer />
-  </div>
-);
+  return (
+    <Routes>
+      <Route path={PATH.HOME} element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path={PATH.LATEST_NEWS} element={<LatestNews />} />
+        <Route path={PATH.POPULAR_NEWS} element={<PopularNews />} />
+      </Route>
+    </Routes>
+  );
+};

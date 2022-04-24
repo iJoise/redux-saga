@@ -1,10 +1,11 @@
-export enum News {
+export enum NewsActions {
   SET_LATEST_NEWS = 'SET_LATEST_NEWS',
   SET_POPULAR_NEWS = 'SET_POPULAR_NEWS',
-  GET_NEWS = 'GET_NEWS',
+  GET_LATEST_NEWS = 'GET_LATEST_NEWS',
+  GET_POPULAR_NEWS = 'GET_POPULAR_NEWS',
 }
 
-export enum Errors {
+export enum ErrorsActions {
   SET_LATEST_NEWS_ERROR = 'SET_LATEST_NEWS_ERROR',
   SET_POPULAR_NEWS_ERROR = 'SET_POPULAR_NEWS_ERROR',
 }

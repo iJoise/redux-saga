@@ -1,5 +1,5 @@
 import { ErrorsNewsAction } from '../types';
-import { Errors } from '../enums';
+import { ErrorsActions } from '../enums';
 
 interface State {
   latestNewsError: string;
@@ -13,8 +13,8 @@ const initialState: State = {
 
 export const newsErrors = (state: State = initialState, action: ErrorsNewsAction): State => {
   switch (action.type) {
-    case Errors.SET_LATEST_NEWS_ERROR:
-    case Errors.SET_POPULAR_NEWS_ERROR:
+    case ErrorsActions.SET_LATEST_NEWS_ERROR:
+    case ErrorsActions.SET_POPULAR_NEWS_ERROR:
       return {
         ...state,
         ...action.payload,

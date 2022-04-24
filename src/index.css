@@ -60,6 +60,7 @@ footer {
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  max-height: 70px;
 }
 
 footer h3 {

@@ -1,0 +1,1 @@
+export { PopularNews } from './PopularNews';

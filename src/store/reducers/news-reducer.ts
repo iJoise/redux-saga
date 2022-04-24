@@ -1,5 +1,5 @@
-import { NewsActions } from '../types';
-import { News } from '../enums';
+import { NewsActionsType } from '../types';
+import { NewsActions } from '../enums';
 import { NewsData } from '../../types';
 
 interface State {
@@ -12,18 +12,14 @@ const initialState: State = {
   popularNews: [],
 };
 
-export const newsReducer = (state: State = initialState, action: NewsActions): State => {
+export const newsReducer = (state: State = initialState, action: NewsActionsType): State => {
   switch (action.type) {
-    case News.SET_LATEST_NEWS:
+    case NewsActions.SET_LATEST_NEWS:
+    case NewsActions.SET_POPULAR_NEWS:
       return {
         ...state,
-        latestNews: [...state.latestNews, ...action.payload]
-      }
-      case News.SET_POPULAR_NEWS:
-      return {
-        ...state,
-        popularNews: [...state.popularNews, ...action.payload]
-      }
+        ...action.payload,
+      };
     default:
       return state;
   }

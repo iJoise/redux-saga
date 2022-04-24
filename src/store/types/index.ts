@@ -4,7 +4,7 @@ import { setErrorLatestNews, setErrorPopularNews, setLatestNews, setPopularNews 
 type SetLatestNews = ReturnType<typeof setLatestNews>
 type SetPopularNews = ReturnType<typeof setPopularNews>
 
-export type NewsActions = SetLatestNews | SetPopularNews
+export type NewsActionsType = SetLatestNews | SetPopularNews
 
 // Errors action
 
